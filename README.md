@@ -15,7 +15,7 @@
 [![Tests](https://github.com/Stephen-studying/SP_skill-dynamic_selector/actions/workflows/tests.yml/badge.svg)](https://github.com/Stephen-studying/SP_skill-dynamic_selector/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-F59E0B)](LICENSE)
 
-[为什么需要它](#为什么需要它) · [使用示例](#一次真实形态的选择) · [快速开始](#快速开始) · [安装](#安装与分发) · [兼容性](#agent-兼容性) · [验证](#实现与验证)
+[为什么需要它](#为什么需要它) · [案例演示](#案例演示) · [快速开始](#快速开始) · [安装](#安装与分发) · [兼容性](#agent-兼容性) · [验证](#实现与验证)
 
 </div>
 
@@ -37,7 +37,21 @@ Codex 优先的通用 Agent Skill。提出任务时选中它，就会先进入�
 | 相关技能超过四个 | 按实际任务罗列，不截断成固定数量 |
 | 希望自己决定执行方式 | 展示清单后等待选择，再读取所选技能并执行 |
 
-## 一次真实形态的选择
+## 案例演示
+
+三个案例展示同一个交互过程：**选中技能并提出任务 → 罗列可能用到的 Skills → 用户选择 → 交接执行**。前两个案例分别展示 7 个、6 个候选，选题案例只列 3 个实际相关候选；数量随任务变化。
+
+> 以下动图为根据技能规则制作的**流程模拟演示**，不是客户端录屏，也不代表已经实际生成 PPT、数据报告或公众号内容。示例中的技能需已安装并启用，实际清单以当前环境为准。
+
+### 案例一：工程论文 → 组会 PPT 与方法路线图
+
+![论文汇报案例：提出任务、列出七个候选技能、选择组合、准备执行](assets/demos/academic-demo.gif)
+
+[查看静态技能清单](assets/demos/academic-preview.png) · [查看交接画面](assets/demos/academic-handoff.png) · [完整案例说明](examples/README.md#案例一论文汇报)
+
+<details>
+<summary>展开任务、技能清单和用户选择</summary>
+
 
 **你选中 `skill-selector`，然后输入：**
 
@@ -60,6 +74,34 @@ Codex 优先的通用 Agent Skill。提出任务时选中它，就会先进入�
 **Agent 随后加载所选技能，按其具体说明完成任务。**
 
 > 这是交互形态示例，假设用户已安装并启用这些技能。实际清单随任务与本地目录动态变化，不固定这些名字，不把所有示例项都列为必选。
+
+</details>
+
+### 案例二：销售 Excel → 变化诊断、图表与分析报告
+
+读取、质量检查、业务分析、指标诊断、制图与报告分别对应不同能力。选择器先列出 6 个候选，再由用户选择组合及执行顺序。
+
+<details>
+<summary>展开 Excel 数据分析动图</summary>
+
+![Excel 分析案例：六个候选技能、用户选择五个、按依赖准备执行](assets/demos/data-demo.gif)
+
+</details>
+
+[静态技能清单](assets/demos/data-preview.png) · [交接画面](assets/demos/data-handoff.png) · [完整案例说明](examples/README.md#案例二excel-数据分析)
+
+### 案例三：公众号找选题 → 保持“目前只做选题”的范围
+
+从 3 个相关入口中选择一条选题路线。用户选定前不开始任务；选定后仍保留“不写正文”的约束。
+
+<details>
+<summary>展开公众号选题动图</summary>
+
+![公众号选题案例：比较三个入口，选择专用选题技能，保留只做选题的范围](assets/demos/topics-demo.gif)
+
+</details>
+
+[静态技能清单](assets/demos/topics-preview.png) · [交接画面](assets/demos/topics-handoff.png) · [完整案例说明](examples/README.md#案例三公众号只做选题)
 
 ## 核心能力
 
@@ -151,10 +193,13 @@ python scripts/package.py --output dist/skill-selector-v0.1.2.zip --install /pat
 - `scripts/inventory.py`：Python 3.11+ 标准库，只读扫描与可选词面召回。
 - `agents/openai.yaml`：Codex UI 信息；隐式匹配保持宿主默认设置。
 - `tests/`：盘点、中文处理、重复来源、禁用设置、循环目录及不执行候选代码等功能检查。
+- `examples/` 与 `assets/demos/`：可复现的流程模拟案例、动图及静态预览；不随技能 ZIP 打包。
 
 ```text
 python -m unittest discover -s tests -v
 ```
+
+重新生成案例视觉需要额外的开发依赖 Pillow 和可用中文字体；这些不是技能运行依赖。命令与素材说明见 [案例说明](examples/README.md#重新生成演示)。
 
 脚本测试不能证明 Agent 在任意任务上的推荐质量。真实宿主中还需检查以下行为：
 

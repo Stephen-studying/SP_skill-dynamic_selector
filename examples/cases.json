@@ -1,0 +1,57 @@
+[
+  {
+    "id": "academic",
+    "title": "论文 → 组会 PPT",
+    "task": "根据这篇工程论文做组会汇报 PPT，包含方法路线图和关键图表解读。",
+    "scope": "论文解读、可编辑演示、方法路线图",
+    "deliverable": "选定后再制作 PPTX 与路线图",
+    "candidates": [
+      ["pdf:pdf", "读取 PDF 与图表", "基础支撑"],
+      ["nature-paper-card", "理解方法与证据链", "精读辅助"],
+      ["nature-paper2ppt", "制作中文学术 PPTX", "主流程"],
+      ["ppt-master", "制作可编辑演示", "制稿替代项"],
+      ["presentations:Presentations", "创建或编辑演示", "制稿替代项"],
+      ["tech-route-maker", "生成方法路线图", "配合使用"],
+      ["nature-figure", "必要时重绘图表", "需要原始数据"]
+    ],
+    "selected": [3, 6],
+    "conditional": [1],
+    "reply": "使用 3 + 6，需要时再用 1。",
+    "handoff": "读取所选技能的完整说明，再按论文内容组织汇报与方法路线图。"
+  },
+  {
+    "id": "data",
+    "title": "Excel → 数据分析报告",
+    "task": "分析这份销售 Excel 的变化原因，制作图表和一份分析报告。",
+    "scope": "表格读取、数据质量、变化分析、图表与报告",
+    "deliverable": "选定后再分析数据、制作图表与报告",
+    "candidates": [
+      ["spreadsheets:Spreadsheets", "读取并处理工作簿", "基础支撑"],
+      ["data-analytics:analyze-data-quality", "检查缺失与重复等问题", "质量检查"],
+      ["data-analytics:product-business-analysis", "分析业务数据与分组", "主流程"],
+      ["data-analytics:metric-diagnostics", "诊断指标变化原因", "专项分析"],
+      ["data-analytics:visualize-data", "制作定量图表", "配合使用"],
+      ["data-analytics:build-report", "组织分析报告", "配合使用"]
+    ],
+    "selected": [1, 2, 4, 5, 6],
+    "conditional": [],
+    "reply": "使用 1 + 2 + 4 + 5 + 6，先确认数据质量再分析。",
+    "handoff": "按读取、质量检查、变化诊断、制图与报告的顺序使用已选技能。"
+  },
+  {
+    "id": "topics",
+    "title": "公众号 → 只做选题",
+    "task": "给公众号找几个适合中年读者的选题，目前只做选题，不写正文。",
+    "scope": "只筛选主题、角度与风险，不进入正文制作",
+    "deliverable": "选定后仅交付选题及角度说明",
+    "candidates": [
+      ["wewrite-topic", "筛选并比较选题", "专用选题入口"],
+      ["wechat-article-writing", "统筹选题与写作流程", "综合替代项"],
+      ["xiaopi-wechat-workflow", "家庭与民生方向选题", "风格替代项"]
+    ],
+    "selected": [1],
+    "conditional": [],
+    "reply": "用 1，只给选题、角度和风险。",
+    "handoff": "读取选题技能说明，交付选题、角度与风险；保留本次只做选题的范围。"
+  }
+]

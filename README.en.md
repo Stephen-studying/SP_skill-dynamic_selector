@@ -50,6 +50,42 @@ Reply with a combination of numbers, skill names, or the suggested combination. 
 
 The candidate set changes with your task and installed skills. It is neither a fixed top-three list nor a dump of every installed skill.
 
+## Case demos
+
+The animations below are **authored workflow simulations, not live client recordings or completed task runs**. The example skills must already be installed and enabled. The UI text is Chinese; each case follows the same four stages: request, candidate list, user selection, and execution handoff.
+
+### 1. Engineering paper → seminar slides and a method diagram
+
+Seven candidates cover PDF reading, paper understanding, alternative deck-making routes, a method diagram, and conditional figure redrawing. The user chooses `3 + 6`, with `1` available if needed.
+
+![Illustrative paper-to-slides workflow with seven candidates](assets/demos/academic-demo.gif)
+
+[Static candidate list](assets/demos/academic-preview.png) · [Static handoff](assets/demos/academic-handoff.png)
+
+<details>
+<summary>2. Sales workbook → change diagnosis, charts, and a report</summary>
+
+Six candidates cover workbook processing, data quality, business analysis, metric diagnostics, charts, and reporting. The user chooses the five relevant steps and explicitly asks to check data quality first.
+
+![Illustrative workbook analysis workflow with six candidates](assets/demos/data-demo.gif)
+
+[Static candidate list](assets/demos/data-preview.png) · [Static handoff](assets/demos/data-handoff.png)
+
+</details>
+
+<details>
+<summary>3. WeChat topic selection → preserve the requested scope</summary>
+
+The user asks for topics only. Three relevant entry points are compared; selecting one does not expand the task into drafting, illustration, typesetting, or publication.
+
+![Illustrative topic-only selection workflow](assets/demos/topics-demo.gif)
+
+[Static candidate list](assets/demos/topics-preview.png) · [Static handoff](assets/demos/topics-handoff.png)
+
+</details>
+
+See [case data and regeneration instructions](examples/README.md). The number of candidates varies with the task; the examples are not a fixed routing catalog.
+
 ## Install
 
 Download `skill-selector-v0.1.2.zip` from [dist/](dist/), extract its top-level `skill-selector` folder, and place it in a supported skill directory.
@@ -94,6 +130,8 @@ python scripts/package.py --output dist/skill-selector-v0.1.2.zip
 Tests cover metadata formats, Unicode, Chinese retrieval, same-name skills from different sources, disabled Codex entries, project boundaries, scan limits, and read-only behavior. Symbolic-link tests may be skipped on systems without creation privileges. Script tests do not prove the agent's recommendation quality or a completed multi-turn task.
 
 The ZIP contains only `SKILL.md`, `agents/openai.yaml`, `scripts/inventory.py`, `references/platforms.md`, and `LICENSE`. Repository documentation, tests, development caches, and local inventories are excluded.
+
+Rebuilding the illustrative GIFs additionally needs Pillow and a CJK font. These are development-only dependencies; see [the demo guide](examples/README.md).
 
 ## Acknowledgments and license
 
