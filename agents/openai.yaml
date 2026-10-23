@@ -1,0 +1,4 @@
+interface:
+  display_name: "本地技能选择器"
+  short_description: "任务开始前罗列大概率会用到的本地技能，不限数量，等用户选择后执行"
+  default_prompt: "使用 $skill-selector：正式做任务前，先罗列本次大概率会用到的本地技能，覆盖主流程和辅助环节，不设固定展示数量上限；说明每项用途、替代或配合关系，等我选择后再执行。"
